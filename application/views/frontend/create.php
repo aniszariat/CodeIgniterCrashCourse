@@ -11,18 +11,22 @@
                             <div class="form-group">
                                 <label for="">First Name</label>
                                 <input type="text" name="first_name" class="form-control">
+                                <small><?= form_error('first_name') ?></small>
                             </div>
                             <div class="form-group">
                                 <label for="">Last Name</label>
                                 <input type="text" name="last_name" class="form-control">
+                                <small><?= form_error('last_name') ?></small>
                             </div>
                             <div class="form-group">
                                 <label for="">Phone Number</label>
                                 <input type="text" name="phone" class="form-control">
+                                <small><?= form_error('phone') ?></small>
                             </div>
                             <div class="form-group">
                                 <label for="">Email ID</label>
                                 <input type="email" name="email" class="form-control">
+                                <small><?= form_error('email') ?></small>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Save</button>
