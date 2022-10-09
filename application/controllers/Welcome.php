@@ -21,6 +21,7 @@ class Welcome extends CI_Controller
      */
     public function index()
     {
+        $this->load->database('codeigniter') ;
         $this->load->view('welcome_message');
     }
     public function demo()
