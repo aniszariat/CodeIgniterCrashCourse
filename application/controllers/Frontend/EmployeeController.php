@@ -42,13 +42,13 @@ class EmployeeController extends CI_Controller
     public function getEmployeesList()
     {
         $this->load->model('EmployeeModel');
-        $res=$this->EmployeeModel->listEmployee();
+        $res = $this->EmployeeModel->listEmployee();
         $this->output
-        ->set_content_type('application/json')
-        ->set_status_header(200)
-        ->set_output(
-            json_encode($res, JSON_NUMERIC_CHECK)
-        );
+            ->set_content_type('application/json')
+            ->set_status_header(200)
+            ->set_output(
+                json_encode($res, JSON_NUMERIC_CHECK)
+            );
     }
     public function editEmployee($id)
     {
@@ -58,24 +58,50 @@ class EmployeeController extends CI_Controller
         $this->load->view('frontend/edit', $data);
         $this->load->view('template/footer');
     }
-    /* public function postEmployee()
+    public function updateEmployee($id)
     {
-        $data = new stdClass();
-        // $data = [
-        //     'first_name' => $first_name,
-        //     'last_name' =>  $last_name,
-        //     'phone' =>      $phone,
-        //     'email' =>      $email,
-        // ];
-        $data= json_decode(file_get_contents('php://input'), true);
-        // $data = json_decode($this->request->getBody());
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('first_name', 'First Name', 'required');
+        $this->form_validation->set_rules('last_name', 'Last Name', 'required');
+        $this->form_validation->set_rules('phone', 'Phone Number', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        if ($this->form_validation->run()) {
+            $data = [
+                'first_name' => $this->input->POST('first_name'),
+                'last_name' => $this->input->POST('last_name'),
+                'phone' => $this->input->POST('phone'),
+                'email' => $this->input->POST('email'),
+            ];
+            $this->load->model('EmployeeModel');
+            $this->EmployeeModel->updateEmployee($id, $data);
+            redirect(base_url('employee'));
+        } else {
+            $this->editEmployee($id);
+        }
+    }
 
 
-        // $this->load->model('EmployeeModel');
-        // $this->EmployeeModel->insertEmployee($data);
+
+    public function postEmployee()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('first_name', 'First Name');
+        $this->form_validation->set_rules('last_name', 'Last Name');
+        $this->form_validation->set_rules('phone', 'Phone Number');
+        $this->form_validation->set_rules('email', 'Email');
+        if ($this->form_validation->run()) {
+            $data = [
+                'first_name' => $this->input->POST('first_name'),
+                'last_name' => $this->input->POST('last_name'),
+                'phone' => $this->input->POST('phone'),
+                'email' => $this->input->POST('email'),
+            ];
+            $this->load->model('EmployeeModel');
+            $this->EmployeeModel->insertEmployee($data);
+        }
         $this->output
         ->set_content_type('application/json')
         ->set_status_header(200)
         ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
-    } */
+    }
 }

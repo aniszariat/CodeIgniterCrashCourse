@@ -7,7 +7,7 @@
                     <a href="<?= base_url('employee'); ?>" class="btn btn-danger">BACK</a>
 
                     <div class="card-body">
-                        <form action="<?= base_url('employee/store') ?>" method="POST">
+                        <form action="<?= base_url('employee/update/'.$employee->id) ?>" method="POST">
                             <div class="form-group">
                                 <label for="">First Name</label>
                                 <input type="text" name="first_name" value="<?= $employee->first_name; ?>" class="form-control">
