@@ -30,6 +30,9 @@ class EmployeeController extends CI_Controller
                 'phone' => $this->input->POST('phone'),
                 'email' => $this->input->POST('email'),
             ];
+            $this->load->model('EmployeeModel');
+            $this->EmployeeModel->insertEmployee($data);
+            redirect(base_url('employee'));
         } else {
             $this->create();
         }
