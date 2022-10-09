@@ -11,3 +11,4 @@ $route['pages'] = 'PageController/pages';
 $route['blog/(:any)/(:num)'] = 'PageController/blog/$1/$2';
 $route['employee'] = 'Frontend/EmployeeController';
 $route['employee/add'] = 'Frontend/EmployeeController/create';
+$route['employee/store'] = 'Frontend/EmployeeController/store';
