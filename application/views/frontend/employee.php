@@ -27,7 +27,7 @@
                   <td><?= $row-> last_name; ?></td>
                   <td><?= $row-> phone; ?></td>
                   <td><?= $row-> email; ?></td>
-                  <td><a href="<?= base_url('employee/:id/edit') ?>" class="btn btn-warning">edit emplyee data</a></td>
+                  <td><a href="<?= base_url('employee/edit/'.$row->id) ?>" class="btn btn-warning">edit emplyee data</a></td>
                   <td><button class="btn btn-danger">delete this employee</button></td>
                 </tr>
               <?php endforeach; ?>

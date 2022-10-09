@@ -38,7 +38,44 @@ class EmployeeController extends CI_Controller
         } else {
             $this->create();
         }
-
-        // print_r($data);
     }
+    public function getEmployeesList()
+    {
+        $this->load->model('EmployeeModel');
+        $res=$this->EmployeeModel->listEmployee();
+        $this->output
+        ->set_content_type('application/json')
+        ->set_status_header(200)
+        ->set_output(
+            json_encode($res, JSON_NUMERIC_CHECK)
+        );
+    }
+    public function editEmployee($id)
+    {
+        $this->load->model('EmployeeModel');
+        $data['employee'] = $this->EmployeeModel->editEmployee($id);
+        $this->load->view('template/header');
+        $this->load->view('frontend/edit', $data);
+        $this->load->view('template/footer');
+    }
+    /* public function postEmployee()
+    {
+        $data = new stdClass();
+        // $data = [
+        //     'first_name' => $first_name,
+        //     'last_name' =>  $last_name,
+        //     'phone' =>      $phone,
+        //     'email' =>      $email,
+        // ];
+        $data= json_decode(file_get_contents('php://input'), true);
+        // $data = json_decode($this->request->getBody());
+
+
+        // $this->load->model('EmployeeModel');
+        // $this->EmployeeModel->insertEmployee($data);
+        $this->output
+        ->set_content_type('application/json')
+        ->set_status_header(200)
+        ->set_output(json_encode($data, JSON_NUMERIC_CHECK));
+    } */
 }
