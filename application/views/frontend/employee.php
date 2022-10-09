@@ -20,32 +20,17 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>@mdo</td>
+              <?php foreach ($employees as $row) :?>
+              <tr>
+                  <th><?= $row-> id; ?></th>
+                  <td><?= $row-> first_name; ?></td>
+                  <td><?= $row-> last_name; ?></td>
+                  <td><?= $row-> phone; ?></td>
+                  <td><?= $row-> email; ?></td>
                   <td><a href="<?= base_url('employee/:id/edit') ?>" class="btn btn-warning">edit emplyee data</a></td>
                   <td><button class="btn btn-danger">delete this employee</button></td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                  <td>@fat</td>
-                  <td><a href="<?= base_url('employee/:id/edit') ?>" class="btn btn-warning">edit emplyee data</a></td>
-                  <td><button class="btn btn-danger">delete this employee</button></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                  <td>@twitter</td>
-                  <td><a href="<?= base_url('employee/:id/edit') ?>" class="btn btn-warning">edit emplyee data</a></td>
-                  <td><button class="btn btn-danger">delete this employee</button></td>
-                </tr>
+              <?php endforeach; ?>
               </tbody>
             </table>
           </div>
