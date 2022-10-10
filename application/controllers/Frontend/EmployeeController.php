@@ -58,6 +58,17 @@ class EmployeeController extends CI_Controller
         $this->load->view('frontend/edit', $data);
         $this->load->view('template/footer');
     }
+    public function getEmployeeById($id)
+    {
+        $this->load->model('EmployeeModel');
+        $employee = $this->EmployeeModel->getEmployeeById($id);
+        $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(200)
+            ->set_output(
+                json_encode($employee, JSON_NUMERIC_CHECK)
+            );
+    }
     public function updateEmployee($id)
     {
         $this->load->library('form_validation');
