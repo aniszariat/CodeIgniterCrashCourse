@@ -4,6 +4,9 @@
       <div class="card">
         <div class="card-header">
           <h5>how to insert into a database </h5>
+          <?php if ($this->session->flashdata('status')) : ?>
+            <div class="alert alert-success"><?= $this->session->flashdata('status') ?></div>
+          <?php endif ?>
           <a href="<?= base_url('employee/add'); ?>" class="btn btn-primary">Add new emplyee</a>
 
           <div class="card-body">
@@ -21,18 +24,18 @@
                 </tr>
               </thead>
               <tbody>
-              <?php foreach ($employees as $row) :?>
-              <tr>
-                  <th><?= $row-> id; ?></th>
-                  <td><?= $row-> first_name; ?></td>
-                  <td><?= $row-> last_name; ?></td>
-                  <td><?= $row-> phone; ?></td>
-                  <td><?= $row-> email; ?></td>
-                  <td><a href="<?= base_url('employee/edit/'.$row->id) ?>" class="btn btn-warning">edit emplyee data</a></td>
-                  <td><a href="<?= base_url('employee/delete/'.$row->id) ?>"  class="btn btn-danger btm-sm">delete this employee</a></td>
-                  <td><button type="button"  class="btn btn-secondary confirm-delete" value="<?=$row->id ?>">delete confirm</button></td>
-                </tr>
-              <?php endforeach; ?>
+                <?php foreach ($employees as $row) : ?>
+                  <tr>
+                    <th><?= $row->id; ?></th>
+                    <td><?= $row->first_name; ?></td>
+                    <td><?= $row->last_name; ?></td>
+                    <td><?= $row->phone; ?></td>
+                    <td><?= $row->email; ?></td>
+                    <td><a href="<?= base_url('employee/edit/' . $row->id) ?>" class="btn btn-warning">edit emplyee data</a></td>
+                    <td><a href="<?= base_url('employee/delete/' . $row->id) ?>" class="btn btn-danger btm-sm">delete this employee</a></td>
+                    <td><button type="button" class="btn btn-secondary confirm-delete" value="<?= $row->id ?>">delete confirm</button></td>
+                  </tr>
+                <?php endforeach; ?>
               </tbody>
             </table>
           </div>

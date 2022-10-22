@@ -34,6 +34,7 @@ class EmployeeController extends CI_Controller
             ];
             $this->load->model('EmployeeModel');
             $this->EmployeeModel->insertEmployee($data);
+            $this->session->set_flashdata('status', 'successfully added employee');
             redirect(base_url('employee'));
         } else {
             $this->create();
@@ -98,6 +99,7 @@ class EmployeeController extends CI_Controller
             ];
             $this->load->model('EmployeeModel');
             $this->EmployeeModel->updateEmployee($id, $data);
+            $this->session->set_flashdata('status', 'successfully updated employee');
             redirect(base_url('employee'));
         } else {
             $this->editEmployee($id);
@@ -152,6 +154,7 @@ class EmployeeController extends CI_Controller
     {
         $this->load->model('EmployeeModel');
         $this->EmployeeModel->deleteEmployee($id);
+        $this->session->set_flashdata('status', 'successfully deleted employee');
         // $this->output
         // ->set_content_type('application/json')
         // ->set_status_header(200)
