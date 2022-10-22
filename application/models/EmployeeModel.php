@@ -51,11 +51,35 @@ class EmployeeModel extends CI_Model
                 $data->email=$row->email;
             }
         }
-
         return $data;
     }
+    public function getFields()
+    {
+        $data = [];
+        $db_read=$this->load->database('default', true);
+        $db_read->select('COLUMN_NAME');
+        $db_read->from('INFORMATION_SCHEMA.COLUMNS');
+        $db_read->where('TABLE_NAME', 'employees');
+        $q=$db_read->get();
+        $db_read->close();
+        foreach ($q->result() as $row) {
+            $data[]=$row->COLUMN_NAME;
+        }
+        return $data;
+
+    //     $sql = "SELECT COLUMN_NAME\n"
+        // . "FROM INFORMATION_SCHEMA.COLUMNS\n"
+        // . "WHERE TABLE_NAME = \'meta_session\'\n"
+        // . "ORDER BY ORDINAL_POSITION;";
+    }
+
     public function updateEmployee($id, $data)
     {
         $this->db->update('employees', $data, ['id' => $id]);
+    }
+
+    public function deleteEmployee($id)
+    {
+        return $this->db->delete('employees', ['id' => $id]);
     }
 }

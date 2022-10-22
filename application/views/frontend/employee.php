@@ -17,6 +17,7 @@
                   <th scope="col">Email ID</th>
                   <th scope="col">Edit</th>
                   <th scope="col">Delete</th>
+                  <th scope="col">Confirm Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -28,7 +29,8 @@
                   <td><?= $row-> phone; ?></td>
                   <td><?= $row-> email; ?></td>
                   <td><a href="<?= base_url('employee/edit/'.$row->id) ?>" class="btn btn-warning">edit emplyee data</a></td>
-                  <td><button class="btn btn-danger">delete this employee</button></td>
+                  <td><a href="<?= base_url('employee/delete/'.$row->id) ?>"  class="btn btn-danger btm-sm">delete this employee</a></td>
+                  <td><button type="button"  class="btn btn-secondary confirm-delete" value="<?=$row->id ?>">delete confirm</button></td>
                 </tr>
               <?php endforeach; ?>
               </tbody>
