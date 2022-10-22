@@ -20,4 +20,6 @@ $route['employee/getEmployee/(:num)'] = 'Frontend/EmployeeController/getEmployee
 $route['employee/update/(:num)'] = 'Frontend/EmployeeController/updateEmployee/$1';
 $route['employee/updateById/(:num)'] = 'Frontend/EmployeeController/updateEmployeeById/$1';
 $route['employee/delete/(:num)'] = 'Frontend/EmployeeController/deleteEmployeeById/$1';
+// $route['employee/confirmDelete/(:num)'] = 'Frontend/EmployeeController/deleteEmployeeById/$1';
+$route['employee/confirmDelete/(:num)']['DELETE'] = 'Frontend/EmployeeController/deleteEmployeeById/$1';
 $route['employee/dir'] = 'Frontend/EmployeeController/getDir';
