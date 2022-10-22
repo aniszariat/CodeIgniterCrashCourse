@@ -7,7 +7,7 @@
           <a href="<?= base_url('employee/add'); ?>" class="btn btn-primary">Add new emplyee</a>
 
           <div class="card-body">
-            <table class="table responsive">
+            <table class="table responsive" id="myTable">
               <thead>
                 <tr>
                   <th scope="col">ID</th>
