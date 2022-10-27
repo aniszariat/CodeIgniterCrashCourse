@@ -23,3 +23,7 @@ $route['employee/delete/(:num)'] = 'Frontend/EmployeeController/deleteEmployeeBy
 // $route['employee/confirmDelete/(:num)'] = 'Frontend/EmployeeController/deleteEmployeeById/$1';
 $route['employee/confirmDelete/(:num)']['DELETE'] = 'Frontend/EmployeeController/deleteEmployeeById/$1';
 $route['employee/dir'] = 'Frontend/EmployeeController/getDir';
+
+//** Login and register Routes */
+$route['register']['GET'] = 'Auth/RegisterController' ;
+$route['register']['POST'] = 'Auth/RegisterController/register' ;
