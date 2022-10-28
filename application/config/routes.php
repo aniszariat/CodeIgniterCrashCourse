@@ -29,4 +29,5 @@ $route['register']['GET'] = 'Auth/RegisterController' ;
 $route['register']['POST'] = 'Auth/RegisterController/register' ;
 $route['login']['GET'] = 'Auth/loginController' ;
 $route['login']['POST'] = 'Auth/loginController/login' ;
-$route['userpage']['GET'] = 'PageController/userpage' ;
+$route['userpage']['GET'] = 'UserController/userpage' ;
+$route['adminpage']['GET'] = 'AdminController/userpage' ;

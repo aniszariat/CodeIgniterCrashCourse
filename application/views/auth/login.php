@@ -1,6 +1,9 @@
-<?php if($this->session->set_flashdata('status')) : ?>
+
+
+
+  <?php if($this->session->flashdata('status')) : ?>
   <div class="alert alert-success">
-    <?= $this->session->set_flashdata('status'); ?>
+    <?= $this->session->flashdata('status'); ?>
   </div>
 <?php endif; ?>
 <form class="row g-3" action="<?= base_url('login') ?>" method="POST">
