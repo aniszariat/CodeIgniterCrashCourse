@@ -27,3 +27,6 @@ $route['employee/dir'] = 'Frontend/EmployeeController/getDir';
 //** Login and register Routes */
 $route['register']['GET'] = 'Auth/RegisterController' ;
 $route['register']['POST'] = 'Auth/RegisterController/register' ;
+$route['login']['GET'] = 'Auth/loginController' ;
+$route['login']['POST'] = 'Auth/loginController/login' ;
+$route['userpage']['GET'] = 'PageController/userpage' ;

@@ -17,6 +17,10 @@ class PageController extends CI_Controller
         echo "blog url is : " .$blog_url ."<br>blog body is : ".$blog_body;
         $this->load->view('blog_view');
     }
+    public function userpage()
+    {
+        $this->load->view('userpage');
+    }
     public function demo()
     {
         // $adds['title']=" hello title";
